@@ -21,10 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Keep the "Click Me!" button dynamically created
+   // Create and properly position the "Click Me!" button
     const button = document.createElement('button');
     button.textContent = 'Click Me!';
-    button.style.margin = '20px';
+    button.style.display = 'block'; // Ensures it is visible
+    button.style.margin = '20px auto'; // Centers it
     button.style.padding = '10px 20px';
     button.style.backgroundColor = '#4CAF50';
     button.style.color = 'white';
@@ -35,5 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert('Hello! This is a JavaScript example.');
     });
 
+    // Append the button inside the "main" section to ensure visibility
     document.querySelector('main').appendChild(button);
 });
