@@ -26,6 +26,7 @@ h1, h2 {
 
 main {
     padding: 20px;
+    padding-bottom: 80px; /* Add Space so the button isn't covered*/
 }
 
 section {
@@ -42,9 +43,8 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    position: relative; /* Change from fixed to relative */
 }
 
 .lazy-section {
