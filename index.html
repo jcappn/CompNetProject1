@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Networking Project</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
 </head>
 <body>
     <header>
-        <p>Computer Networks Project 1</p>
-        <h1>Welcome to My Computer Networking Project</h1>
+        <p>Computer Networks Project 1 + 2</p>
+        <h1>Welcome to My Computer Networking Project!</h1>
     </header>
     <main>
         <section>
@@ -24,11 +25,20 @@
                 <li><strong>Protocols</strong>: HTTP/HTTPS are protocols used to transfer data between a client and a server.</li>
             </ul>
         </section>
+        <section>
+            <h2>Test XSS Protextion</h2>
+            <form id="userForm">
+                <label for="userInput">Enter some text:</label>
+                <input type="text" id="userInput" placeholder="Type something...">
+                <button type="submit">Submit</button>
+            </form>
+            <h3>Sanitized Output:</h3>
+            <div id="output"></div>
+        </section>
     </main>
     <footer>
-        <p>Created by Joe Capponi for Computer Networks Class.</p>
+        <p>Created by Joe Capponi</p>
     </footer>
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
 </body>
 </html>
