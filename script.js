@@ -1,23 +1,19 @@
-// script.js
-document.addEventListener('DOMContentLoaded', function () {
-    // Add interactivity here
-    const inputField = document.createElement("input");
-    inputField.type = "text";
-    inputField.id = "userInput";
-    inputField.placeholder = "Type something...";
+// script.js (Fixed XSS Protection)
+document.addEventListener("DOMContentLoaded", function () {
+    // Select existing form elements
+    const form = document.getElementById("userForm");
+    const inputField = document.getElementById("userInput");
+    const outputDiv = document.getElementById("output");
 
-    const submitButton = document.createElement("button");
-    submitButton.textContent = "Submit";
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevents form reload
 
-    const outputDiv = document.createElement("div");
-    outputDiv.id = "output";
-
-    submitButton.addEventListener("click", function () {
-        let unsafeText = document.getElementById("userInput").value;
-        let safeText = DOMPurify.sanitize(unsafeText);
-        document.getElementById("output").textContent = safeText;//Fixed: Corrected Id and Variable Name 
+        let unsafeText = inputField.value;
+        let safeText = DOMPurify.sanitize(unsafeText); // Sanitize input
+        outputDiv.textContent = safeText; // Display sanitized input
     });
 
+    // Keep the "Click Me!" button dynamically created
     const button = document.createElement('button');
     button.textContent = 'Click Me!';
     button.style.margin = '20px';
@@ -32,7 +28,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.querySelector('main').appendChild(button);
-    document.body.appendChild(inputField);
-    document.body.appendChild(submitButton);
-    document.body.appendChild(outputDiv);
 });
