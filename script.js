@@ -1,16 +1,24 @@
-// script.js (Fixed XSS Protection)
+// script.js (Fix for XSS Protection & Form Submission Issue)
 document.addEventListener("DOMContentLoaded", function () {
     // Select existing form elements
     const form = document.getElementById("userForm");
     const inputField = document.getElementById("userInput");
     const outputDiv = document.getElementById("output");
 
+    // Ensure JavaScript prevents form from reloading
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevents form reload
-
-        let unsafeText = inputField.value;
+        
+        console.log("Form submitted!"); // Debugging: Check if this appears in Console
+        
+        let unsafeText = inputField.value.trim(); // Trim whitespace
         let safeText = DOMPurify.sanitize(unsafeText); // Sanitize input
-        outputDiv.textContent = safeText; // Display sanitized input
+        
+        if (safeText) {
+            outputDiv.textContent = safeText; // Display sanitized input
+        } else {
+            outputDiv.textContent = "Please enter some text."; // Handle empty input
+        }
     });
 
     // Keep the "Click Me!" button dynamically created
