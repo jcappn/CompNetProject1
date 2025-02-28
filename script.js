@@ -1,6 +1,23 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
     // Add interactivity here
+    const inputField = document.createElement("input");
+    inputField.type = "text";
+    inputField.id = "userInput";
+    inputField.placeholder = "Type something...";
+
+    const submitButton = document.createElement("button");
+    submitButton.textContent = "Submit";
+
+    const outputDiv = document.createElement("div");
+    outputDiv.id = "output";
+
+    submitButton.addEventListener("click", function () {
+        let unsafeText = document.getElementById("userInput").value;
+        let safetext = DOMPurify.sanitize(unsafeText);
+        document.getElementById("Output").innerHTML = safeText;
+    });
+
     const button = document.createElement('button');
     button.textContent = 'Click Me!';
     button.style.margin = '20px';
@@ -15,4 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.querySelector('main').appendChild(button);
+    document.body.appendChild(inputField);
+    document.body.appendChild(submitButton);
+    document.body.appendChild(outputDiv);
 });
