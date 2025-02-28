@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     submitButton.addEventListener("click", function () {
         let unsafeText = document.getElementById("userInput").value;
-        let safetext = DOMPurify.sanitize(unsafeText);
-        document.getElementById("Output").innerHTML = safeText;
+        let safeText = DOMPurify.sanitize(unsafeText);
+        document.getElementById("output").textContent = safeText;//Fixed: Corrected Id and Variable Name 
     });
 
     const button = document.createElement('button');
