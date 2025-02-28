@@ -47,10 +47,13 @@ footer {
     width: 100%;
 }
 
-/* Lazy Loaded Image Padding */
-.lazy-image {
-    margin-top: 50px; /* Adds extra space before the image */
+.lazy-section {
+    padding-top: 50px; /* Adjust as needed */
     display: block;
+    text-align: center;
+}
+
+.lazy-image {
     max-width: 100%;
     height: auto;
 }
